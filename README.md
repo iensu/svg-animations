@@ -1,5 +1,9 @@
 # SVG Animations using GreenSock (GSAP)
 
+Simple demonstration (click the star):
+
+https://iensu.github.io/svg-animations/
+
 Inspirational video:
 * https://www.youtube.com/watch?v=wc8ovZZ78SY
 
