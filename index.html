@@ -59,25 +59,27 @@
            ease: Power1.easeIn
          });
 
-       const closeEyes = TweenMax.to('.eye', 0.3, {
+       const closeEyes = (duration) => TweenMax.to('.eye', duration, {
          scaleY: 0.2,
          scaleX: 1.5
        });
 
-       const openEyes = TweenMax.to('.eye', 0.1, {
+       const openEyes = (duration) => TweenMax.to('.eye', duration, {
          scaleY: 1,
          scaleX: 1
        });
 
-       const blink = TweenMax.fromTo('.eye', 0.8, {
-         scaleX: 1.5, scaleY: 0.2
-       }, {
-         scaleX: 1, scaleY: 1
-       })
+       const blink = (opts) => new TimelineMax(opts)
+         .add(closeEyes(0.1))
+         .add(openEyes(0.1));
 
        mainTl.add(starSpin);
-       mainTl.add(closeEyes, 1.5);
-       mainTl.add(openEyes, 4);
+       mainTl.add(closeEyes(0.3), 1.5);
+       mainTl.add(openEyes(0.1), 4);
+
+       mainTl.add(blink({
+         repeat: 1
+       }), 4.9);
 
        mainTl.play();
      }
