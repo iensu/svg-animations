@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>SVG Animations</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <style>
+     html, body {
+       margin: 0;
+       padding: 50px;
+     }
+
+     #star-svg {
+       display: block;
+       margin: 0 auto;
+     }
+    </style>
+  </head>
+  <body>
+    <svg id="star-svg" width="262px" height="256px" viewBox="0 0 131 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+      <g id="encircled-star">
+        <ellipse id="circle-background" fill="#E92525" cx="65.5" cy="64" rx="65.5" ry="64"></ellipse>
+        <g id="star">
+          <polygon id="star-shape" fill="#F8E71C" points="64.8051609 96 30.8642822 115.777088 37.3464132 73.8885438 9.88766554 44.2229124 47.8347215 38.1114562 64.8051609 0 81.7756002 38.1114562 119.722656 44.2229124 92.2639086 73.8885438 98.7460396 115.777088"></polygon>
+          <ellipse id="eye-left" class="eye" fill="#000000" cx="51.5" cy="56.5" rx="4.5" ry="5.5"></ellipse>
+          <ellipse id="eye-right" class="eye" fill="#000000" cx="77.5" cy="56.5" rx="4.5" ry="5.5"></ellipse>
+        </g>
+      </g>
+
+    </svg>
+    <script>
+     const $starSvg = document.getElementById('star-svg');
+
+     $starSvg.onclick = animate;
+
+     function animate() {
+       const mainTl = new TimelineMax();
+
+       const starSpin = new TimelineMax()
+         .from('#star', 4, {
+           rotation: -360 * 10,
+           transformOrigin: '50% 50%',
+           ease: Power1.easeIn
+         })
+         .to('#star', 0.5, {
+           rotation: 10,
+           transformOrigin: '50% 50%',
+           ease: Power1.easeOut
+         })
+         .to('#star', 0.1, {
+           rotation: 0,
+           transformOrigin: '50% 50%',
+           ease: Power1.easeIn
+         });
+
+       const closeEyes = TweenMax.to('.eye', 0.3, {
+         scaleY: 0.2,
+         scaleX: 1.5
+       });
+
+       const openEyes = TweenMax.to('.eye', 0.1, {
+         scaleY: 1,
+         scaleX: 1
+       });
+
+       const blink = TweenMax.fromTo('.eye', 0.8, {
+         scaleX: 1.5, scaleY: 0.2
+       }, {
+         scaleX: 1, scaleY: 1
+       })
+
+       mainTl.add(starSpin);
+       mainTl.add(closeEyes, 1.5);
+       mainTl.add(openEyes, 4);
+
+       mainTl.play();
+     }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="131px" height="128px" viewBox="0 0 131 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>commie-star</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="commie-star">
+            <ellipse id="circle-background" fill="#E92525" cx="65.5" cy="64" rx="65.5" ry="64"></ellipse>
+            <polygon id="star" fill="#F8E71C" points="64.8051609 96 30.8642822 115.777088 37.3464132 73.8885438 9.88766554 44.2229124 47.8347215 38.1114562 64.8051609 0 81.7756002 38.1114562 119.722656 44.2229124 92.2639086 73.8885438 98.7460396 115.777088"></polygon>
+            <ellipse id="eye-left" fill="#000000" cx="51.5" cy="56.5" rx="4.5" ry="5.5"></ellipse>
+            <ellipse id="eye-right" fill="#000000" cx="77.5" cy="56.5" rx="4.5" ry="5.5"></ellipse>
+        </g>
+    </g>
+</svg>
